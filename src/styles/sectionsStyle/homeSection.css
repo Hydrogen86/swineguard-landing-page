@@ -1,0 +1,285 @@
+#home-section{
+  margin-bottom: 7rem;
+}
+
+#home-section .banner{
+  position: relative;
+  align-items: center;
+  height: clamp(515px, 75vw, 600px);
+  padding-top: 2.5rem;
+}
+#home-section .banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('./../../assets/images/veterenary.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.8; /* Adjust this value for transparency */
+  z-index: -1;
+}
+
+#home-section .banner .floating-pig-img{
+  position: absolute;
+  z-index: 2;
+  bottom: -48px;
+  width: clamp(235px, 70vw, 240px);
+  height: clamp(135px, 50vw, 140px) ;
+  filter: drop-shadow(9px 0px 1px rgba(0, 0, 0, 0.4));
+}
+
+#home-section .banner .overlay-content{
+  z-index: 20;
+}
+
+#home-section .banner .overlay-content .swine-logo{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-inline: auto;
+  width: fit-content;
+  margin-bottom: 8rem;
+}
+
+#home-section .banner .overlay-content .swine-logo img{
+  width: clamp(90px, 10vw, 125px);
+  height: clamp(90px, 10vw, 125px);
+}
+
+#home-section .banner .overlay-content .swine-logo .label{
+  font-size: var(--home-logo-fSize);
+  font-weight: 900;
+  color: var(--background-color);
+  line-height: 1em;
+  -webkit-text-stroke: 1px #717171; 
+}
+
+#home-section .banner .overlay-content .signup-container{
+  position: relative;
+  padding: 0 6%;
+}
+
+#home-section .banner .overlay-content .signup-heading{
+  font-size: var(--home-signup-heading-fSize);
+  font-weight: 500;
+  color: var(--background-color);
+  margin-bottom: 0.2rem;
+}
+
+#home-section .banner .overlay-content .signup-body{
+  font-size: var(--home-signup-body-fSize);
+  color: var(--background-color);
+  text-align: justify;
+  line-height: 1.2em;
+  padding: 0.5rem 0.3rem;
+  margin-bottom: 1rem;
+  max-width: 600px;
+}
+
+#home-section .banner .overlay-content .join-btn{
+  position: absolute;
+  right: 2.6rem;
+  color: var(--background-color);
+  font-size: var(--home-joinBtn-fSize);
+  font-weight: 600;
+  border: 1px solid var(--background-color);
+  background-color: #2FC575;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+
+/*feature cards slider*/
+.feature-cards-list{
+  --side-spacing: 1rem; /*side spacing*/
+  
+  position: relative;
+  height: 352px;
+}
+
+.feature-cards-list .arrow-slider-btn{
+  position: absolute;
+  top: 30%;
+  width: clamp(27px, 5vw, 50px);
+  height: clamp(25.88px, 5vw, 50px);
+  z-index: 3;
+}
+
+.feature-cards-list .arrow-slider-btn.left{
+  rotate: 180deg;
+  left: var(--side-spacing);
+}
+
+.feature-cards-list .arrow-slider-btn.right{
+  right: var(--side-spacing);
+}
+
+.feature-cards-list .feature-card{
+  position: relative;
+  height: 345px;
+}
+
+.feature-cards-list .feature-card .background-img{
+  position: absolute;
+  width: 100%;
+  height: 68%;
+  z-index: -1;
+  border-left: 1px solid white;
+}
+
+.feature-cards-list .feature-card .background-img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, 
+  rgba(255, 255, 255, 1) 0%, 
+  rgba(255, 255, 255, 0.95) 2%,
+  rgba(255, 255, 255, 0.25) 11%,
+  rgba(255, 255, 255, 0) 41%, 
+  rgba(255, 255, 255, 0.25) 65%, 
+  rgba(255, 255, 255, 0.5) 74%, 
+  rgba(255, 255, 255, 1) 91%
+  );
+  pointer-events: none;
+  border-left: none;
+}
+
+.feature-cards-list .feature-card .background-img img{
+  width: 100%;
+  height: 100%;
+  border-left: none;
+}
+
+.feature-cards-list .feature-card  .text-content{
+  padding: 0 var(--side-spacing);
+  padding-top: 11.2rem;
+  color: #231F20;
+}
+
+.feature-cards-list .feature-card  .text-content .heading{
+  font-size: var(--home-slider-heading-fSize);
+  line-height: 1.5em;
+  margin-bottom: 0.8rem;
+}
+
+.feature-cards-list .feature-card  .text-content .heading .number{
+  font-size: clamp(1.5rem, 2.5vw, 2.125rem);
+  font-weight: 800;
+}
+
+.feature-cards-list .feature-card  .text-content .body{
+  font-size: var(--home-slider-body-fSize);
+  text-align: justify;
+  font-weight: 500;
+}
+
+
+
+@media(width >= 28.625rem /*458px*/){
+  .feature-cards-list .feature-card  .text-content{
+    padding-top: 12.7rem;
+  }
+}
+
+
+@media(width > 830px /*800px*/){
+  #home-section{
+    margin-bottom: 15rem;
+  }
+  /* banner */
+  #home-section .banner{
+    display: flex;
+    align-content: center;
+    align-content: center;
+    justify-content: space-between;
+    padding-top: 0px;
+  }
+
+  #home-section .banner .floating-pig-img{
+    position: relative;  
+    transform: translateY(34.4%);
+    width: clamp(227px, 53vw, 850px);
+    height: clamp(127px, 65vw, 500px);
+    filter: drop-shadow(30px 0px 1px rgba(0, 0, 0, 0.4));
+  }
+
+  #home-section .banner .overlay-content{
+    height: fit-content;
+    width: 50%;
+    padding-right: 8%;
+    padding-top: 0rem;
+  }
+
+  #home-section .banner .overlay-content .swine-logo{
+    gap: 1.5rem;
+    margin-inline: 0px;
+    margin-bottom: 1.2rem;
+    margin-left: 3rem;
+  }
+
+  #home-section .banner .overlay-content .signup-heading{
+    color: var(--secondary-color);
+    font-weight: 600;
+  }
+  
+  #home-section .banner .overlay-content .signup-body{
+    color: #212121;
+  }
+
+  #home-section .banner .overlay-content .join-btn{
+    right: 3rem;
+  }
+
+  /*feature cards slider*/
+  .feature-cards-list .arrow-slider-btn{
+    --side-spacing: 2.5rem;
+
+    top: 20.5rem;
+  }
+
+  .feature-cards-list .feature-card{
+    position: relative;
+    height: 410px;
+    background: linear-gradient(to right, 
+    rgba(255, 255, 255, 1) 0%, 
+    rgba(255, 255, 255, 0.95) 2%,
+    rgba(255, 255, 255, 0.25) 11%,
+    rgba(255, 255, 255, 0) 41%, 
+    rgba(255, 255, 255, 0.25) 65%, 
+    rgba(255, 255, 255, 0.5) 74%, 
+    rgba(255, 255, 255, 1) 100%
+    );
+  }
+
+  .feature-cards-list .feature-card .background-img{
+    width: 73%;
+    height: 100%;
+  }
+
+  .feature-cards-list .feature-card  .text-content{
+    padding: 0 var(--side-spacing);
+    padding-top: 6rem;
+    max-width: 24rem;
+    color: #231F20;
+    text-align: justify;
+    margin-left: auto;
+    margin-right: 3rem;
+  }
+}
+
+
+@media(width > 62.5rem /*1000px*/){
+  .feature-cards-list .feature-card  .text-content{
+    margin-right: 12%;
+    max-width: 28rem;
+    padding-top: 6rem;
+  }
+}

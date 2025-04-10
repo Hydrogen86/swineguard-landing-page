@@ -1,0 +1,122 @@
+#services-section{
+  text-align: center;
+  margin-bottom: 15rem;
+  width: 100%;
+  color: var(--secondary-color);
+}
+
+#services-section .section-heading{
+  font-size: var(--serviceSection-heading-fSize);
+  margin-bottom: 4rem;
+}
+
+#services-section .services-card-container{
+  width: clamp(320px, 90vw, 1216px);
+  padding: 0 1%;
+}
+
+#services-section .services-card-container.d-grid{
+  display: grid;
+  gap: 1.2rem;
+  margin-inline: auto;
+}
+
+#services-section .services-card-container .service-card{
+  border: 1.7px solid #919191;
+  border-radius: 8px;
+  padding: 3%;
+  cursor: pointer;
+}
+
+#services-section .services-card-container .service-card .img-and-name{
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  width: 100%;
+}
+
+#services-section .services-card-container .service-card .img{
+  flex: 60%;
+  height: clamp(79.9px, 20vw, 158px);
+}
+
+#services-section .services-card-container .service-card  .name{
+  font-size: var(--serviceCard-name-fSize);
+  flex: 40%;
+}
+
+#services-section .services-card-container .service-card .details{
+  font-size: var(--serviceCard-details-fSize);
+  padding: 0 0.2rem;
+  margin-top: 1rem;
+}
+
+#services-section .services-card-container .service-card .details.show{
+  display: flow;
+}
+
+#services-section .services-card-container .service-card .details.hide{
+  display: none;
+}
+
+
+
+
+@media (width >= 500px){
+  #services-section .services-card-container{
+    width: clamp(320px, 90vw, 1216px);
+    padding: 0;
+  }
+
+  #services-section .services-card-container.d-grid{
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  #services-section .services-card-container .service-card{
+    border: none;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+    transition: 0.3s scale;
+  }
+
+  #services-section .services-card-container .service-card:hover{
+    scale: 1.1;
+  }
+
+  #services-section .services-card-container .service-card .img-and-name{
+    display: block;
+  }
+
+  #services-section .services-card-container .service-card .img{
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+
+  #services-section .services-card-container .service-card  .name{
+    font-weight: 500;
+  }
+
+  #services-section .services-card-container .service-card .details{
+    display: flow;
+    margin-top: 0;
+  }
+
+  #services-section .services-card-container .service-card .details.hide{
+    display: flow;
+  }
+}
+
+
+@media (width >= 900px){
+  #services-section .services-card-container.d-grid{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (width >= 1322px){
+  #services-section .services-card-container.d-grid{
+    grid-template-columns: repeat(4, 261px); 
+    gap: 3.28rem;
+    width: fit-content;
+  }
+}

@@ -1,0 +1,134 @@
+#swine-experts-section{
+  text-align: center;
+  margin-bottom: 16rem;
+}
+
+#swine-experts-section .section-heading{
+  font-size: var(--swineExperts-section-heading-fSize);
+  margin-bottom: 2rem;
+}
+
+#swine-experts-section .expert-cards-container {
+  position: relative;
+  overflow: hidden;
+  padding: 1.5rem 0;
+}
+
+#swine-experts-section .expert-cards-container .slider-btn {
+  position: absolute;
+  top: 50%;
+  width: clamp(25px, 6vw, 32px);
+  height: clamp(46px, 11vw, 53px);
+  opacity: 0.4;
+  z-index: 3;
+  cursor: pointer;
+}
+
+#swine-experts-section .expert-cards-container .slider-btn.left {
+  left: 15px;
+  rotate: 180deg;
+}
+
+#swine-experts-section .expert-cards-container .slider-btn.right {
+  right: 15px;
+}
+
+#swine-experts-section .expert-cards-container .scroller {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+#swine-experts-section .expert-cards-container .expert-card-wrapper {
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#swine-experts-section .expert-cards-container .expert-card {
+  min-width: 251px;
+  min-height: 100%;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  text-align: left;
+  padding: 1rem 1rem 2rem 1rem;
+  margin-inline: 10%;
+}
+
+#swine-experts-section .expert-cards-container .expert-card .img {
+  width: 100%;
+  height: clamp(260px, 40vw, 359px);
+  border-radius: 15px;
+  margin-bottom: 1rem;
+}
+
+#swine-experts-section .expert-cards-container .expert-card .info{
+  padding: 0 0.4rem;
+}
+
+#swine-experts-section .expert-cards-container .expert-card .info .name{
+  font-size: var(--swineExperts-name-fSize);
+}
+
+#swine-experts-section .expert-cards-container .expert-card .info .role{
+  font-size: var(--swineExperts-role-fSize);
+  font-weight: 700;
+  color: #1ABB65;
+  margin-bottom: 1rem;
+}
+
+#swine-experts-section .expert-cards-container .expert-card .info .details{
+  font-size: var(--serviceCard-details-fSize);
+}
+
+
+@media (width >= 32.5rem /* 520px */) {
+  #swine-experts-section .expert-cards-container .expert-card {
+    margin-inline: 15%;
+  }
+}
+
+@media (width >= 40.625rem /* 650px */) {
+  #swine-experts-section .expert-cards-container .expert-card {
+    margin-inline: 20%;
+  }
+}
+
+@media (width >= 45rem /* 720px */) {
+  #swine-experts-section .expert-cards-container .expert-card {
+    margin-inline: 25%;
+  }
+}
+
+@media (width >= 65.5625rem /* 1049px */) {
+  #swine-experts-section .expert-cards-container .slider-btn {
+    display: none;
+  }
+
+  #swine-experts-section .expert-cards-container .scroller {
+    justify-content: center;
+    gap: 4.7rem;
+  }
+
+  #swine-experts-section .expert-cards-container .expert-card-wrapper {
+    display: block;
+    max-width: 16.625rem /* 266px */;
+  }
+
+  #swine-experts-section .expert-cards-container .expert-card {
+    padding: 1rem 0rem 2rem 0rem;
+    max-width: 16.625rem /* 266px */;
+    box-shadow: none;
+    border-radius: 25px;
+    margin-inline: 0rem;
+  }
+
+  #swine-experts-section .expert-cards-container .expert-card .img {
+    width: 100%;
+    border-radius: 25px;
+    margin-bottom: 2.5rem;
+  }
+
+  #swine-experts-section .expert-cards-container .expert-card .info {
+    padding: 0;
+  }
+}

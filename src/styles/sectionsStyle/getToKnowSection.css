@@ -1,0 +1,61 @@
+#get-to-know-section{
+  text-align: center;
+  margin-bottom: 16rem;
+  color: var(--secondary-color);
+}
+
+#get-to-know-section .section-heading{
+  font-size: var(--getToKnow-section-heading-fSize);
+  margin-bottom: 3rem;
+}
+
+#get-to-know-section .cards-container.d-flex{
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center; 
+  row-gap: 2rem;
+  column-gap: 4rem;
+  padding: 0 1rem;
+}
+
+#get-to-know-section .cards-container .knowmore-card{
+  flex: 1 1 310px;
+  position: relative;
+  border-radius: 15px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+  padding: 1.9rem 1.1rem 0rem 1.1rem;
+  max-width: 310px;
+  min-height: 100%;
+}
+
+#get-to-know-section .cards-container .knowmore-card .icon{
+  width: clamp(80px, 25vw, 90px);
+  height: clamp(80px, 25vw, 90px) ;
+  margin-bottom: 0.4rem;
+}
+
+#get-to-know-section .cards-container .knowmore-card .label{
+  font-size: var(--getToKnow-card-label-fSize);
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+
+#get-to-know-section .cards-container .knowmore-card .details{
+  font-size: var(--getToKnow-card-details-fSize);
+  text-indent: 30px;
+  text-align: justify;
+  margin-bottom: 4rem;
+}
+
+#get-to-know-section .cards-container .knowmore-card .readmore-btn{
+  position: absolute;
+  left: 50%;
+  bottom: 0px;
+  transform: translate(-50%, -50%);
+  font-size: var(--getToKnow-cardBtn-fSize);
+  background-color: var(--primary-color);
+  border-radius: 20px;
+  color: var(--background-color);
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+}

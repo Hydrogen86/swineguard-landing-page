@@ -1,0 +1,14 @@
+{
+    "Services" : {
+        "appointmentServices" : [
+            "Iron Supplementation",
+            "Deworming",
+            "ASF Testing",
+            "Blood Testing",
+            "Health Surveillance",
+            "Rabbies Vaccination",
+            "Postpartum Care",
+            "Surgical Castration"
+        ]
+    }
+}

@@ -1,0 +1,66 @@
+footer{
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  font-size: var(--footer-fSize);
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  padding: 60rem 12% 1.5rem 12%;
+}
+
+footer .column1{
+  line-height: 1.6em;
+}
+
+footer .column1 .heading{
+  font-size: var(--footer-fSize);
+  font-weight: 600;
+}
+
+footer .column2{
+  text-align: center;
+}
+
+footer .column2 .socmed-list{
+ display: flex;
+ gap: 0.8rem;
+ justify-content: center;
+ margin-bottom: 0.5rem;
+}
+
+footer .socmed-list .heading{
+  font-size: var(--footer-fSize);
+  font-weight: 500;
+}
+
+footer .socmed-list ul{
+  display: flex;
+  gap: 0.8rem;
+}
+
+footer .socmed-list ul .socmed-icon{
+  width: clamp(20px, 4.8vw, 25px);
+  height: clamp(20px, 4.8vw, 25px)
+}
+
+
+@media(width > 480px){
+  footer{
+    padding-top: 40rem;
+  }
+}
+
+@media(width >= 800px){
+  footer{
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50rem 8% 3rem 8%;
+  }
+}
+
+@media(width > 1200px){
+  footer{  
+    padding: 13rem 19% 3rem 19%;
+  }
+}
