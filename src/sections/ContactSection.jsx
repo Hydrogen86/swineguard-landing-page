@@ -18,7 +18,7 @@ function ContactSection(){
   const [clientName, setClientName] = useState("");
   const [clientEmail, setClientEmail] = useState("");
   const [clientContact, setClientContact] = useState("");
-  const appointmentStatus = "requested";
+  const appointmentStatus = "no status";
   const isRegistered = false;
   const [loading, setLoading] = useState(false); 
 
