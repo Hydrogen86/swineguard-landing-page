@@ -85,7 +85,8 @@
 }
 
 .appointment-form select,
-.appointment-form input{
+.appointment-form input,
+textarea{
   width: 100%;
   background-color: rgba(19, 187, 97, 0.3);
   border: none;
@@ -93,6 +94,16 @@
   padding: 1rem;
   padding-left: 0.5rem;
   margin-bottom: 1rem;
+}
+
+/* Text Header */
+.text-header {
+  text-align: left;
+  font-weight: 600;
+}
+.swine-gender label {
+  display: block;
+  text-align: left;
 }
 
 .appointment-form select,
@@ -109,6 +120,7 @@
   border-radius: 15px;
   width: 100%;
 }
+
 
 .appointment-form .group{
   display: flex;

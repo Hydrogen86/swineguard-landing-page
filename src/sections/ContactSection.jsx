@@ -8,18 +8,24 @@ import axios from "axios"
 import Swal from "sweetalert2";
 
 function ContactSection(){
-  const [appointmentTitle, setAppointmentTitle] = useState("")
-  const [swineType, setSwineType] = useState("")
-  const [swineCount, setSwineCount] = useState("")
-  const [appointmentDate, setSchedule] = useState("")
-  const [appointmentTime, setTime] = useState("")
+  // Swine Information:
+  const [appointmentTitle, setAppointmentTitle] = useState("");
+  const [swineType, setSwineType] = useState("");
+  const [swineCount, setSwineCount] = useState("");
+  const [appointmentDate, setSchedule] = useState("");
+  const [appointmentTime, setTime] = useState("");
+  const [swineSymptoms, setSwineSymptoms] = useState("");
+  const [swineAge, setSwineAge] = useState("");
+  const [swineMale, setSwineMale] = useState("");
+  const [swineFemale, setSwineFemale] = useState("");
+
+  // Client Information:
   const [municipality, setSelectedMunicipality] = useState("");
   const [barangays, setBarangays] = useState([]);
   const [clientName, setClientName] = useState("");
   const [clientEmail, setClientEmail] = useState("");
   const [clientContact, setClientContact] = useState("");
-  const appointmentStatus = "no status";
-  const isRegistered = false;
+  const appointmentStatus = "pending";
   const [loading, setLoading] = useState(false); 
 
   const handleMunicipalityChange = (event) => {
@@ -38,6 +44,8 @@ function ContactSection(){
     setSwineType(swine);
   };
 
+  const swineValidation = parseInt(swineCount) === (parseInt(swineMale) + parseInt(swineFemale)); //Check if the number of swine and gender number is equal
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -49,17 +57,28 @@ function ContactSection(){
       !swineCount ||
       !appointmentDate ||
       !appointmentTime ||
+      !swineSymptoms||
+      !swineAge||
+      !swineMale||
+      !swineFemale||
       !municipality ||
       !e.target.barangay.value ||
       !clientName ||
       !clientEmail ||
       !clientContact
     ) {
-      Swal.fire({
-        icon: 'warning',
-        title: 'Missing Fields',
-        text: 'Please fill out all the fields before submitting.',
-      });
+      const icon = 'warning';
+      const title = 'Missing Fields';
+      const text= 'Please fill out all the fields before submitting.';
+      alertMsg(icon, title, text);
+    setLoading(false);
+    return; // Prevent the request from being sent
+  }
+  if (!swineValidation) {
+    const icon = 'warning';
+    const title = 'Invalid Input';
+    const text = 'Please check if your number of swine and genders are correct';
+    alertMsg(icon, title, text);
     setLoading(false);
     return; // Prevent the request from being sent
   }
@@ -70,13 +89,16 @@ function ContactSection(){
       swineCount,
       appointmentDate,
       appointmentTime,
+      swineSymptoms,
+      swineAge,
+      swineMale,
+      swineFemale,
       appointmentStatus,
       municipality,
       barangay: e.target.barangay.value,
       clientName,
       clientEmail,
-      clientContact,
-      isRegistered
+      clientContact
     };
 
     axios.post('http://localhost:3000/appointment', appointmentData)
@@ -94,11 +116,9 @@ function ContactSection(){
   .catch(err => {
     setLoading(false);
     console.log(err);
-    Swal.fire({
-      icon: 'error',
-      title: 'Appointment Sending Failed',
-      text: 'Appointment was not sent!',
-    });
+    const icon = 'error';
+    const title = 'Appointment Sending Failed';
+    const text = 'Appointment was not sent!';
   });
 
   console.log("Appointment Data Submitted:", appointmentData);
@@ -122,7 +142,7 @@ function ContactSection(){
         <h3 className="heading">Send Your Appointment</h3>
         <p className="reminder-txt">Please ensure all text fields are properly filled out before submitting your appointment request.</p>
 
-        
+        <p className="text-header">Swine Information: </p>
         <div className="group">
           {/*select appointment*/}
           <select id="appointment" name="appointment" onChange={handleAppointmentChange}>
@@ -140,14 +160,36 @@ function ContactSection(){
           </select>
         </div>
        
-
         <div className="group">
           {/*appointment schedule*/}
           <input type="date" id="appointment-schedule" name="schedule" onChange={(e) => setSchedule(e.target.value)}/>
           <input type="time" id="time" name="time" onChange={(e) => setTime(e.target.value)}/>
-          <input type="number" name="heads" id="heads" placeholder="Heads" min={0} onChange={(e) => setSwineCount(e.target.value)}/>
+          <input type="number" name="heads" id="heads" placeholder="Heads" min={1} onChange={(e) => setSwineCount(e.target.value)}/>
         </div>
 
+        <div className="group ">
+          <textarea id="symptoms" required placeholder="Kindly write down the symptoms" onChange={(e) => setSwineSymptoms(e.target.value)}></textarea>
+          
+        </div>
+
+        {/* Swine Gender */}
+        <p className="text-header">Swine Gender:</p>
+        <div className="group gender">
+          <div className="swine-gender">
+            <label htmlFor="male">Male</label>
+            <input type="number" name="male" id="male" min={0} placeholder="0" onChange={(e) => setSwineMale(e.target.value)} required/>
+          </div>
+          <div className="swine-gender">
+            <label htmlFor="female">Female</label>
+            <input type="number" name="female" id="female" min={0} placeholder="0" onChange={(e) => setSwineFemale(e.target.value)} required/>
+          </div>
+          <div className="swine-gender">
+            <label htmlFor="swine-age">Swine Age:</label>
+            <input type="number" min={0} name="swine-age" id="swine-age" placeholder="months old" required onChange={(e) => setSwineAge(e.target.value)}/>
+          </div>
+        </div>
+
+        <p className="text-header">Client Information: </p>
         <div className="group">
            {/* Select Municipality */}
            <select id="municipality" name="municipality" onChange={handleMunicipalityChange}>
@@ -184,6 +226,12 @@ function ContactSection(){
     </section>
   )
 }
-
+function alertMsg (iconTxt, titleTxt, txtText){
+  Swal.fire({
+    icon: iconTxt,
+    title: titleTxt,
+    text: txtText,
+  });
+}
 
 export default ContactSection
