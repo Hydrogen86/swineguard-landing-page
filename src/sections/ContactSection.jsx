@@ -119,6 +119,20 @@ function ContactSection(){
     const icon = 'error';
     const title = 'Appointment Sending Failed';
     const text = 'Appointment was not sent!';
+    alertMsg(icon, title, text);
+
+    // Check if it's a 429 error (rate limit reached)
+    if (err.response && err.response.status === 429) {
+      const icon = 'warning';
+      const title = 'Rate Limit Exceeded';
+      const text = 'Too many requests. Please try again later.';
+      alertMsg(icon, title, text);
+    } else {
+      const icon = 'error';
+      const title = 'Appointment Sending Failed';
+      const text = 'Appointment was not sent!';
+      alertMsg(icon, title, text);
+    }
   });
 
   console.log("Appointment Data Submitted:", appointmentData);
